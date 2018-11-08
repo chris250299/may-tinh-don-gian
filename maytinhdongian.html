@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Máy tính</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+    .button {
+        color: blue;
+        background-color: antiquewhite;
+        font-family: "Courier New";
+        font-size: 20px;
+        text-align: center;
+        border: 3px solid navajowhite;
+        width: 50px;
+        height: 45px;
+    }
+
+    .display {
+        color: blue;
+        background-color: antiquewhite;
+        font-size: 20px;
+        font-family: "Courier New";
+        text-align: right;
+        border: 3px solid navajowhite;
+        width: 220px;
+        height: 45px;
+    }
+</style>
+<form>
+    <input type="text" class="display" id="display">
+    <br>
+    <br>
+    <div class="window">
+        <table border="1">
+            <tr>
+                <td>
+                    <button type="button" id="1" class="button" onclick="number('1');">1</button>
+                </td>
+                <td>
+                    <button type="button" id="2" class="button" onclick="number('2');">2</button>
+                </td>
+                <td>
+                    <button type="button" id="3" class="button" onclick="number('3');">3</button>
+                </td>
+                <td>
+                    <button type="button" id="plus" class="button" onclick="operator('+')">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="4" class="button" onclick="number('4');">4</button>
+                </td>
+                <td>
+                    <button type="button" id="5" class="button" onclick="number('5');">5</button>
+                </td>
+                <td>
+                    <button type="button" id="6" class="button" onclick="number('6');">6</button>
+                </td>
+                <td>
+                    <button type="button" id="minus" class="button" onclick="operator('-');">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="7" class="button" onclick="number('7');">7</button>
+                </td>
+                <td>
+                    <button type="button" id="8" class="button" onclick="number('8');">8</button>
+                </td>
+                <td>
+                    <button type="button" id="9" class="button" onclick="number('9');">9</button>
+                </td>
+                <td>
+                    <button type="button" id="multi" class="button" onclick="operator('*');">x</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" id="del" class="button" onclick="remove();">C</button>
+                </td>
+                <td>
+                    <button type="button" id="0" class="button" onclick="number('0')">0</button>
+                </td>
+                <td>
+                    <button type="button" id="equal" class="button" onclick="bang();">=</button>
+                </td>
+                <td>
+                    <button type="button" id="divide" class="button" onclick="operator('/');">/</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <script>
+        function number(num) {
+            document.getElementById("display").value = document.getElementById("display").value + num;
+        }
+
+        function operator(operator) {
+            document.getElementById("display").value = document.getElementById("display").value + operator;
+        }
+
+        function remove() {
+            var xoa = document.getElementById("display").value;
+            document.getElementById("display").value = xoa.substring(0, xoa.length - 1)
+        }
+
+        function bang() {
+            var bieuthuc = document.getElementById("display").value;
+            if (!bieuthuc) {
+                document.getElementById("display").value = "";
+            } else {
+                document.getElementById("display").value = eval(bieuthuc);
+            }
+        }
+
+
+    </script>
+</form>
+</body>
+</html>
+
+
+
+
